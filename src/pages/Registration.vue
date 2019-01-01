@@ -2,11 +2,11 @@
     <div>
         <Menu/>
         <form>
-            Authorization
+            Registration
             <p style="color:red" v-if="err">Ошибка:{{err}}</p>
             <p> Login : <input type="email" required v-model="email"></p>
-            <p> Password : <input type="password" required v-model="password"></p>
-            <button @click.prevent="signup()">LogIn</button>
+            <p> Password: <input type="password" required v-model="password"></p>
+            <button @click.prevent="signup()">Registration</button>
         </form>
     </div>
 </template>
@@ -15,7 +15,7 @@
     import Menu from '@/components/Menu'
 
     export default {
-        name: "Authorize",
+        name: "Registration",
         components: {
             Menu
         },
@@ -23,12 +23,12 @@
             return {
                 email: null,
                 password: null,
-                err: false
+                err: ''
             }
         },
         methods: {
             signup() {
-                this.$store.dispatch('loginUser', {email: this.email, password: this.password})
+                this.$store.dispatch('registerUser', {email: this.email, password: this.password})
                     .then(
                         () => {
                             this.err = '';

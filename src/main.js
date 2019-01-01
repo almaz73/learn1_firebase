@@ -23,8 +23,14 @@ new Vue({
             projectId: "friendlychat-f95f6",
             storageBucket: "friendlychat-f95f6.appspot.com",
             messagingSenderId: "266869847098"
-        }
+        };
         firebase.initializeApp(config);
+
+        firebase.auth().onAuthStateChanged(user => {
+            if (user) {
+                this.$store.dispatch('loggedUser', user)
+            }
+        })
     }
 }).$mount('#app');
 

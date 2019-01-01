@@ -1,17 +1,37 @@
 import firebase from 'firebase/app';
+
 export default {
     state: {
-        user: {
-            isAuthenticated: false,
-            uid: null
+        user: null
+    },
+    getters: {
+        isLogged(state) {
+            return state.user
         }
     },
-    mutations: {},
-    getters: {},
+    mutations: {
+        setUser(state, id) {
+            state.user = id
+        },
+        logoutUser(state) {
+            state.user = null
+        }
+    },
     actions: {
         async registerUser({commit}, {email, password}) {
             const user = await firebase.auth().createUserWithEmailAndPassword(email, password);
-            console.log(' ..111111111. user=', user);
+            commit('setUser', user.user.uid)
+        },
+        async loginUser({commit}, {email, password}) {
+            const user = await firebase.auth().signInWithEmailAndPassword(email, password);
+            commit('setUser', user.user.uid)
+        },
+        async logOutUser({commit}) {
+            await firebase.auth().signOut();
+            commit('logoutUser')
+        },
+        loggedUser({commit}, user) {
+            commit('setUser', user.uid);
         }
     }
 }

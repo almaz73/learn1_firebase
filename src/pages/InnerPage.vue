@@ -1,7 +1,7 @@
 <template>
     <div>
         <Menu/>
-        Main page
+        Inner page
     </div>
 </template>
 
@@ -9,7 +9,7 @@
     import Menu from '@/components/Menu'
 
     export default {
-        name: "Index",
+        name: "InnerPage",
         components: {
             Menu
         },

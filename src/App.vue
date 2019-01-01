@@ -14,9 +14,13 @@
 </script>
 
 <style>
+    body {
+        background: #ccc;
+    }
+
     #app {
         font-family: 'Avenir', Helvetica, Arial, sans-serif;
         text-align: center;
-        margin-top: 60px;
+        padding-top: 60px;
     }
 </style>
