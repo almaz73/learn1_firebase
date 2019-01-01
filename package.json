@@ -2,6 +2,7 @@
   "name": "learn1_firebase",
   "version": "0.1.0",
   "private": true,
+  "author": "almaz <almaz_73@mail.ru>",
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
