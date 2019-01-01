@@ -1,3 +1,4 @@
+import firebase from 'firebase/app';
 export default {
     state: {
         user: {
@@ -8,9 +9,9 @@ export default {
     mutations: {},
     getters: {},
     actions: {
-        SIGNUP({commit}, payload) {
-            console.log(' ..111111111. el=', payload);
-            console.log(' ... commit=',commit)
+        async registerUser({commit}, {email, password}) {
+            const user = await firebase.auth().createUserWithEmailAndPassword(email, password);
+            console.log(' ..111111111. user=', user);
         }
     }
 }

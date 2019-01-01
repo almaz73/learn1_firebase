@@ -18,8 +18,7 @@
         },
         methods: {
             signup() {
-                console.log(' ... el=', this.email, this.password)
-                this.$store.dispatch('SIGNUP',{email: this.email, passwors:this.password})
+                this.$store.dispatch('registerUser',{email: this.email, password:this.password})
             }
         }
     }
